@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @Repository
 public interface AuthRepository extends JpaRepository <User, Long> {
-    User findUserByEmailAndPassword (String email, String password);
+    User findByEmailAndPassword (String email, String password);
     User findUserByEmail(String email);
     User findUserByAccountNumber(String accountNumber);
     Optional<User> findById(Long id);

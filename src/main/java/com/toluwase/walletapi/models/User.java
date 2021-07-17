@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @Getter
 @Setter
 @Entity
-@Table(name = "users")
+//@Table(name = "users")
 public class User extends BaseModel {
 
     private String firstName;
@@ -26,7 +26,7 @@ public class User extends BaseModel {
     private String verifiedPhone;
     private String verifiedBvn;
     private Level levels = Level.LEVEL_ONE;
-    @Column(name = "verification_code", length = 64)
+    @Column(name = ("verification_code"), length = 64)
     private String verificationCode;
     private boolean enabled;
     private String accountNumber;

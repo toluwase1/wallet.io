@@ -13,18 +13,8 @@ import java.util.Random;
 @Service
 public class AccountService {
     private AuthRepository authRepository;
+
     public String generateAccountNumber(){
-//        ArrayList<Integer> list = new ArrayList<>();
-//        for (int i=1; i<100000; i++) {
-//            list.add(i);
-//        }
-//        Collections.shuffle(list);
-//        String accountNumber = null;
-//        for (int i=0; i<1; i++) {
-//            accountNumber = ("00000"+list.get(i));
-//            return accountNumber;
-//        }
-//        return accountNumber;
         String [] num = {"0","1","2","3","4","5","6","7","8","9"};
         Random random = new Random();
         StringBuffer sb = new StringBuffer();

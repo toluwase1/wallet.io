@@ -4,7 +4,6 @@ import com.toluwase.walletapi.models.Level;
 import com.toluwase.walletapi.models.LevelOneInfo;
 import com.toluwase.walletapi.models.User;
 import com.toluwase.walletapi.repositories.AuthRepository;
-import com.toluwase.walletapi.requestEntities.TransferRequest;
 import com.toluwase.walletapi.services.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,7 +20,8 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public User login(String email, String password) {
-       return authRepository.findUserByEmailAndPassword(email, password);
+      User user = authRepository.findByEmailAndPassword(email, password);
+      return user;
     }
 
     @Override
