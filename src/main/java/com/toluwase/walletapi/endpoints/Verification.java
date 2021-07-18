@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,7 +29,7 @@ public class Verification {
     @Autowired
     AuthServiceImpl authService;
 
-    @GetMapping("/phone")
+    @PostMapping("/phone")
     public ResponseEntity<LoginResponse> verifyPhone (@RequestBody LevelTwoInfo levelTwoInfo, Long id) {
         verificationService.levelTwoVerification(levelTwoInfo, id);
         LoginRequest loginRequest = new LoginRequest();
@@ -38,7 +39,7 @@ public class Verification {
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
-    @GetMapping("/bvn")
+    @PostMapping("/bvn")
     public ResponseEntity<LoginResponse> verifyBVN (@RequestBody LevelThreeInfo levelThreeInfo, Long id, LevelTwoInfo levelTwoInfo) {
         verificationService.levelThreeVerification(levelThreeInfo, id, levelTwoInfo);
         LoginRequest loginRequest = new LoginRequest();
