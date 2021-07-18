@@ -42,10 +42,9 @@ public class AccountService {
         return "Transfer of " +transferRequest.getTransferAmount() +" was successful";
     }
 
-    public String withdrawMoney(WithdrawRequest withdrawRequest, Long id) {
+    public String withdrawMoney(WithdrawRequest withdrawRequest, Long id, TransferRequest transferRequest) {
         User user = authRepository.findById(id).get();
-        Double withdrawalRequest = withdrawRequest.getWithDrawAmount();
-        Double balance = user.getBalance()-withdrawalRequest;
+
         //check pin
         if (!user.getPin().equals(withdrawRequest.getPin())) {
             return "Transfer failed as pin is incorrect";
@@ -54,6 +53,9 @@ public class AccountService {
         if (!(withdrawRequest.getWithDrawAmount()<= user.getBalance())) {
             return "Insufficient balance";
         }
+        Double withdrawalRequest = withdrawRequest.getWithDrawAmount();
+        setsTransferAndWithdrawalLimit(transferRequest, withdrawRequest, id);
+        Double balance = user.getBalance()-withdrawalRequest;
         //execute remove balance to required accounts
         user.setBalance(balance);
         return "Your withdraw Request of " + withdrawalRequest+"is successful." +

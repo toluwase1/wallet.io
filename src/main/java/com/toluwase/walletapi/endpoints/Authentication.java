@@ -38,5 +38,4 @@ public class Authentication {
                     user.getPin(), user.getPassword(), user.getAccountNumber());
             return ResponseEntity.status(HttpStatus.OK).body(response);
         }
-
 }
