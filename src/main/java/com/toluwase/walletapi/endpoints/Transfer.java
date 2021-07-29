@@ -40,7 +40,7 @@ public class Transfer {
     }
 
     @PostMapping("/account")
-    public  ResponseEntity<LoginResponse> sendMoneyByAccountNumber (TransferRequest transferRequest, Long id) {
+    public  ResponseEntity<LoginResponse> sendMoneyByAccountNumber (@RequestBody TransferRequest transferRequest, Long id) {
         accountService.transferByAccount(transferRequest, id);
         LoginResponse loginResponse =new LoginResponse();
         return ResponseEntity.status(HttpStatus.OK).body(loginResponse);
