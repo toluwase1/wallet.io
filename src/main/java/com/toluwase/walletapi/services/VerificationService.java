@@ -1,6 +1,5 @@
 package com.toluwase.walletapi.services;
 
-import com.toluwase.walletapi.models.LevelOneInfo;
 import com.toluwase.walletapi.models.LevelThreeInfo;
 import com.toluwase.walletapi.models.LevelTwoInfo;
 

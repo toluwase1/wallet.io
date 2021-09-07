@@ -6,12 +6,14 @@ import com.toluwase.walletapi.repositories.AuthRepository;
 import com.toluwase.walletapi.requestEntities.TopupRequest;
 import com.toluwase.walletapi.requestEntities.TransferRequest;
 import com.toluwase.walletapi.requestEntities.WithdrawRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Random;
 
 @Service
 public class AccountService {
+    @Autowired
     private AuthRepository authRepository;
 
     public String generateAccountNumber(){
